@@ -1,8 +1,10 @@
 [H[2J
 Manjaro Live ISO (\l) - \s-\r \m.
 
-Default login "manjaro" with password "manjaro".
-"root" login has password "manjaro".
+enter the user name and password. After logging in, use the command exec startx
+introduza el nombre de usuario y contraseña. Después de iniciar sesión, utilice el comando exec startx
+entre com o nome de usuário e senha. Após o login use o comando exec startx
+geben sie den benutzernamen und das passwort. Nach der anmeldung mit dem befehl exec startx
+entrez le nom d'utilisateur et mot de passe. Après la connexion, utilisez la commande exec startx
 
-You can start the installation with "sudo setup".
 

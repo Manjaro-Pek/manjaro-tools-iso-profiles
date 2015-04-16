@@ -1,0 +1,290 @@
+# Irbis theme for PekWM
+# License: GPL
+# Author: adolfscloud@gmail.com
+# 
+
+$FONT = "XFT#Play:size=10#Left"
+$FONT_TITLE = "XFT#Play:size=9#Left"
+#$MENU_TITLE = "XFT#Play:size=8#Center"
+
+Require {
+  Templates = "True"
+}
+
+Define = "BaseDecor" {
+  Height = "27"
+
+  # Increase first number to bring title text downwards
+  Pad = "2 5 5 0"
+
+  Focused = "Image title.png"
+  Unfocused = "Image title-unf.png"
+
+  Tab {
+    Focused = "Empty"
+    FocusedSelected = "Empty"
+    Unfocused = "Empty"
+    UnfocusedSelected = "Empty"
+  }
+  Separator {
+    Focused = "Empty"
+    Unfocused = "Empty"
+  }
+  Font {
+    Focused = "$FONT_TITLE"
+  }
+  FontColor {
+    Focused = "#000000"
+    FocusedSelected = "#000000"
+    Unfocused = "#494949"
+    UnfocusedSelected = "#494949"
+  }
+  Border {
+    Focused {
+      TopLeft = "Image top-left.png"
+      Top = "Image top-border.png"
+      TopRight = "Image top-right.png"
+      Left =  "Image border-left.png"
+      Right = "Image border-right.png"
+      BottomLeft = "Image bottom-left.png"
+      Bottom = "Image bottom-border.png"
+      BottomRight = "Image bottom-right.png"
+    }
+    Unfocused {
+      TopLeft = "Image top-left-unf.png"
+      Top = "Image top-border-unf.png"
+      TopRight = "Image top-right-unf.png"
+      Left =  "Image border-left-unf.png"
+      Right = "Image border-right-unf.png"
+      BottomLeft = "Image bottom-left-unf.png"
+      Bottom = "Image bottom-border-unf.png"
+      BottomRight = "Image bottom-right-unf.png"
+    }
+  }
+}
+
+Define = "BaseButtons" {
+  Buttons {
+    Right = "Close" {
+      Focused = "Image close.png"
+      Unfocused = "Image close_unf.png"
+      Hoover = "Image close_hover.png"
+      Pressed = "Image close_press.png"
+      Button = "1" { Actions = "Close" }
+    }
+
+    Right = "Maximize" {
+      Focused = "Image max.png"
+      Unfocused = "Image max_unf.png"
+      Hoover = "Image max_hover.png"
+      Pressed = "Image max_press.png"
+      Button = "1" { Actions = "Toggle Maximized 1 1" }
+#      Button = "1" { Actions = "Unset DecorBorder; Set Maximized" }
+#      Button = "3" { Actions = "Set DecorBorder; Unset Maximized" }
+    }
+
+    Right = "Iconify" {
+      Focused = "Image min.png"
+      Unfocused = "Image min_unf.png"
+      Hoover = "Image min_hover.png"
+      Pressed = "Image min_press.png"
+      Button = "1" { Actions = "Set Iconified" }
+    }
+
+    #Left = "Shade" {
+      Focused = "Image shade.png"
+      Unfocused = "Image shade-hover.png"
+      Hoover = "Image shade-hover.png"
+      Pressed = "Image shade.png"
+      Button = "1" { Actions = "Toggle Shaded" }
+    }
+      
+  }
+}
+
+Define = "MenuDecor" {
+  Height = "3"
+
+  # Increase first number to bring title text downwards
+  Pad = "2 0 0 0"
+
+  Focused = "Image title-m.png"
+  Unfocused = "Image title-m.png"
+
+  Tab {
+    Focused = "Empty"
+    FocusedSelected = "Empty"
+    Unfocused = "Empty"
+    UnfocusedSelected = "Empty"
+  }
+  Separator {
+    Focused = "Empty"
+    Unfocused = "Empty"
+  }
+  Font {
+    Focused = "$MENU_TITLE"
+  }
+  FontColor {
+    Focused = "#000000"
+    FocusedSelected = "#ffffff"
+    Unfocused = "#0d0d0d"
+    UnfocusedSelected = "#0d0d0d"
+  }
+  Border {
+    Focused {
+      TopLeft = "Image top-left-m.png"
+      Top = "Image top-border.png"
+      TopRight = "Image top-right-m.png"
+      Left =  "Image border-left-m.png"
+      Right = "Image border-right-m.png"
+      BottomLeft = "Image bottom-left-m.png"
+      Bottom = "Image bottom-border-m.png"
+      BottomRight = "Image bottom-right-m.png"
+    }
+    Unfocused {
+      TopLeft = "Image top-left-m.png"
+      Top = "Image top-border.png"
+      TopRight = "Image top-right-m.png"
+      Left =  "Image border-left-m.png"
+      Right = "Image border-right-m.png"
+      BottomLeft = "Image bottom-left-m.png"
+      Bottom = "Image bottom-border-m.png"
+      BottomRight = "Image bottom-right-m.png"
+    }
+  }
+}
+
+Define = "EmptyDecor" {
+  Focused = "Empty"
+  Unfocused = "Empty"
+
+  Tab {
+    Focused = "Empty"
+    FocusedSelected = "Empty"
+    Unfocused = "Empty"
+    UnfocusedSelected = "Empty"
+  }
+
+  Separator {
+    Focused = "Empty"
+    Unfocused = "Empty"
+  }
+
+  Font {
+    Focused = "Empty"
+  }
+
+  FontColor {
+    Focused = "Empty"
+    FocusedSelected = "Empty"
+    Unfocused = "Empty"
+    UnfocusedSelected = "Empty"
+  }    
+
+  Border {
+    Focused {
+      TopLeft = "Empty"
+      Top = "Empty"
+      TopRight = "Empty"
+      Left =  "Empty"
+      Right = "Empty"
+      BottomLeft = "Empty"
+      Bottom = "Empty"
+      BottomRight = "Empty"
+    }
+    Unfocused {
+      TopLeft = "Empty"
+      Top = "Empty"
+      TopRight = "Empty"
+      Left =  "Empty"
+      Right = "Empty"
+      BottomLeft = "Empty"
+      Bottom = "Empty"
+      BottomRight = "Empty"
+    }
+  }
+}
+
+PDecor {
+  Decor = "Default" {
+    Title {
+      @BaseDecor
+      @BaseButtons
+    }
+  }
+
+  Decor = "Menu" {
+    Title {
+      @MenuDecor
+    }
+  }
+
+  Decor = "Titlebarless" {
+    Title {
+      @EmptyDecor
+    }
+  }
+
+  Decor = "Statuswindow" {
+    Title {
+      @EmptyDecor
+    }
+  }
+}
+
+Harbour {
+  Texture = "Solid #f9f9f9"
+}
+
+Menu {
+  Pad = "0 0 4 4" 
+
+  Focused {
+    Font = "$FONT"
+    Background = "Solid #efeff2"
+    Item = "Solid #efeff2"
+    Text = "#0d0d0d" 
+    Separator = "Image menuline.png#Scaled"
+    Arrow = "Image arrow.png"
+  }
+  Unfocused {
+    Font = "$FONT"
+    Background = "Solid #efeff2"
+    Item = "Solid #efeff2"
+    Text = "#0d0d0d"
+    Separator = "Image menuline.png#Scaled"
+    Arrow = "Image arrow.png"
+  }
+  Selected {
+    Font = "$FONT"
+    Background = "Solid #3d3d3d"
+    Item = "Solid #007acc"
+    Text = "#efeff2"
+    Arrow = "Image arrow_focus.png"
+  }
+}
+
+CmdDialog {
+  Font = "$FONT"
+  Texture = "Solid #0d0d0d"
+  Text = "#ffffff"
+  Pad = "2 0 1 10"
+}
+
+Status {
+  Font = "$FONT_TITLE"
+  Texture = "Solid #0d0d0d"
+  Text = "#ffffff"
+  Pad = "2 2 10 10"
+}
+
+WorkspaceIndicator {
+  Font = "$FONT_TITLE"
+  Background = "Solid #0d0d0d"
+  Workspace = "Solid #efefef"
+  WorkspaceActive = "Solid #6BADF6"
+  Text = "#ffffff"
+  EdgePadding = "1"
+  WorkspacePadding = "1"
+}
+

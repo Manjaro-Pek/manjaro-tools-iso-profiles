@@ -1,0 +1,91 @@
+#!/bin/bash
+clear
+
+echo 'Este script permite converter arquivos de video, gerando arquivos
+otimizados para serem assistidos em smartphones. Para usa-lo copie os
+arquivos a serem convertidos para a mesma pasta onde esta o script.
+Ao ser executado, ele converte todos os arquivos de uma vez, mantendo os
+originais. Os arquivos convertidos recebem o prefixo "c-"
+Para usar o script, é necessário que o mencoder e o ffmpeg estejam
+instalados. (Enter para continuar)
+'
+read pausa
+
+echo 'Foram encontrados os arquivos':
+find ./ | sed -e "/converter-video.sh/D"
+echo '
+Escolha o formato de sada:
+
+1) MPEG4, 320x240 (videos no formato 4:3, para smartphones)
+2) MPEG4, 320x176 (videos em formato wide, para smartphones)
+3) Real Player, 320x240 (videos no formato 4:3)
+4) Real Player, 320x176 (videos em formato wide)
+5) Video 3gp, 176x144, para celulares antigos
+6) Video 480p (720x480), para ser assistido em netbooks
+7) Video VGA (640x480), para ser assistido em netbooks
+8) Video MKV (640x480), para enviar para youtube
+9) Video MKV (480p), para youtube
+10) Video Container mp4 (handbrake)
+11) Video Container mkv (handbrake)
+12) MP3 
+
+(Responda 1, 2, 3, 4, 5, 6, 7, 8, 9 ou qualquer outra tecla para sair)'
+read resposta
+
+if [ "$resposta" = "1" ]; then
+for i in *; do
+mencoder -oac mp3lame -lameopts cbr:br=128 -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=512 -ofps 16 -vf scale=320:240 -o "c-$i" "$i"
+done
+elif [ "$resposta" = "2" ]; then
+for i in *; do
+mencoder -oac mp3lame -lameopts cbr:br=128 -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=512 -ofps 16 -vf scale=320:176 -o "c-$i" "$i"
+done
+elif [ "$resposta" = "3" ]; then
+for i in *; do
+mencoder -oac mp3lame -lameopts cbr:br=256 -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=1024 -vf scale=320:240 -o tmp.avi "$i"
+ffmpeg -i tmp.avi -f mp4 -vcodec mpeg4 -b 256000 -r 15 -s 320x240 -acodec aac -ar 44100 -ab 128 -ac 2 "c-$i".mp4
+rm -f tmp.avi
+done
+elif [ "$resposta" = "4" ]; then
+for i in *; do
+mencoder -oac mp3lame -lameopts cbr:br=256 -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=1024 -vf scale=320:176 -o tmp.avi "$i"
+ffmpeg -i tmp.avi -f mp4 -vcodec mpeg4 -b 256000 -r 15 -s 320x176 -acodec aac -ar 44100 -ab 128 -ac 2 "c-$i".mp4
+rm -f tmp.avi
+done
+elif [ "$resposta" = "5" ]; then
+for i in *; do
+avconv -i "$i" -s qcif -vcodec h263 -acodec aac -ac 1 -ar 48000 -r 15 -ab 32 -y "c-$i".3gp
+done
+elif [ "$resposta" = "6" ]; then
+for i in *; do
+mencoder -oac mp3lame -lameopts cbr:br=128 -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=1024 -vf scale=720:480 -o "480p-$i" "$i"
+done
+elif [ "$resposta" = "7" ]; then
+for i in *; do
+mencoder -oac mp3lame -lameopts cbr:br=128 -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=1024 -vf scale=640:480 -o "VGA-$i" "$i"
+done
+elif [ "$resposta" = "8" ]; then
+for i in *; do
+mencoder -oac mp3lame -lameopts cbr:br=128 -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=1024 -vf scale=720:480 -o "360p-$i" "$i"
+done
+elif [ "$resposta" = "9" ]; then
+for i in *; do
+ffmpeg -i "$i" -c:v libx264 -preset slow -crf 18 -c:a libvorbis -q:a 5 -pix_fmt yuv420p "c-$i".mkv
+done
+elif [ "$resposta" = "10" ]; then
+for i in *; do
+HandBrakeCLI -i "$i" -o "c-$i".mp4 -e x264 -q 20 -B 160 -O
+done
+elif [ "$resposta" = "11" ]; then
+for i in *; do
+HandBrakeCLI -i "$i" -o "c-$i".mkv -m -E copy --audio-copy-mask ac3,dts,dtshd --audio-fallback ffac3 -e x264 -q 20 -x level=4.1:ref=4:b-adapt=2:direct=auto:me=umh:subq=8:rc-lookahead=50:psy-rd=1.0,0.15:deblock=-1,-1:vbv-bufsize=30000:vbv-maxrate=40000:slices=4
+done
+elif [ "$resposta" = "12" ]; then
+for i in *; do
+ffmpeg -i "$i" -ar 22050 "c-$i".mp3
+done
+else
+echo "Você digitou uma opção inválida"
+fi
+
+exit 0

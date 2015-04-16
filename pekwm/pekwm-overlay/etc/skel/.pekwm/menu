@@ -1,0 +1,232 @@
+# Menu config for pekwm
+
+# Variables
+INCLUDE = "vars"
+
+RootMenu = "Pekwm" {
+	Entry = "Grun" { Icon = "run.png";Actions = "Exec grun" }
+	#Entry = "Run.." { Icon = "run.png";Actions = "ShowCmdDialog" }
+
+	#Separator {}
+
+	#Entry = "" { Actions = "Dynamic /usr/bin/xdgmenumaker -n -i -f pekwm --pekwm-dynamic" }
+
+	Separator {}
+
+	Entry = "Terminal" { Icon = "terminator.png";Actions = "Exec $TERM &" }
+	Entry = "Xfe" { Icon = "xfe.png";Actions = "Exec xfe" }
+	Entry = "Geany" { Icon = "geany.png";Actions = "Exec geany" }
+	Entry = "Xfw" { Icon = "xfw.png";Actions = "Exec xfw" }
+	Entry { Actions = "Dynamic /usr/share/pekwm/scripts/pkmenu.py" }
+
+	Separator {}
+
+	Entry = "Firefox" { Icon = "firefox.png";Actions = "Exec firefox" }
+	#Entry = "Palemoon" { Icon = "palemoon.png";Actions = "Exec palemoon" }
+	#Entry = "Chromium" { Icon = "chromium.png";Actions = "Exec chromium" }
+	#Entry = "Qupzilla" { Icon = "qupzilla.png";Actions = "Exec qupzilla" }
+	Entry = "Thunderbird" { Icon = "thunderbird.png";Actions = "Exec thunderbird" }
+	#Entry = "Skyppy-XD" { Actions = "Exec skippy-xd --activate-window-picker" }
+
+	Separator {}
+
+	Submenu = "Ferramentas" { Icon = "f.png"
+		Entry = "Keepassx" { Icon = "keepassx.png";Actions = "Exec keepassx" }
+		Entry = "Cherrytree" { Icon = "cherrytree.png";Actions = "Exec cherrytree" }
+		Entry = "Homebank" { Icon = "homebank.png";Actions = "Exec homebank" }
+		Entry = "Git Cola" { Icon = "gitg.png";Actions = "Exec git-cola" }
+		#Entry = "ISOUSB" { Icon = "unetbootin.png";Actions = "Exec isousb" }
+		#Entry = " { Icon = "vim.png";Actions = "Exec $TERM -title vim -e vim" }
+
+	}
+	Submenu = "Escritrório" { Icon = "e.png"
+		#Entry = "Abiword" { Icon = "abiword.png";Actions = "Exec abiword" }
+		#Entry = "Gnumeric" { Icon = "gnumeric.png";Actions = "Exec gnumeric" }
+		#Entry = "Xournal" { Icon = "xournal.png";Actions = "Exec xournal" }
+		Entry = "Calculadora" { Icon = "galculator.png";Actions = "Exec calculator" }
+		Entry = "Writer" { Icon = "libreoffice-writer.png";Actions = "Exec lowriter" }
+		Entry = "Calc" { Icon = "libreoffice-calc.png";Actions = "Exec localc" }
+		Entry = "Impress" { Icon = "libreoffice-impress.png";Actions = "Exec loimpress" }
+		#Entry = "Xmind" { Icon = "xmind.png";Actions = "Exec XMind" }
+		Entry = "PDF Edit" { Icon = "evince.png";Actions = "Exec /opt/master-pdf-editor/master-pdf-editor" }
+		#Entry = "Agenda" { Actions = "Exec rednotebook" }
+		Entry = "Scribus" { Icon = "scribus.png";Actions = "Exec scribus" }
+	}
+	Submenu = "Gráficos" { Icon = "g.png"
+		Entry = "gimp" { Icon = "gimp.png";Actions = "Exec gimp" }
+		Entry = "Inkscape" { Icon = "inkscape.png";Actions = "Exec inkscape" }
+		#Entry = "RawTherapee" { Icon = "rawtherapee.png";Actions = "Exec rawtherapee" }
+		Entry = "Darktable" { Icon = "darktable.png";Actions = "Exec darktable" }
+		#Entry = "Converseen" { Icon = "converseen.png";Actions = "Exec converseen" }
+		#Entry = "Redimensionar Img" { Icon = "gnome-photos.png";Actions = "Exec firefox http://www.simpleimageresizer.com/upload" }
+		Entry = "Blender" { Icon = "blender.png";Actions = "Exec blender" }
+		Entry = "Gcolor" { Icon = "gcolor2.png";Actions = "Exec gcolor2" }
+		#Entry = "yad-color" { Icon = "gcolor2.png";Actions = "Exec $TERM -title yad-color -e ~/.Scripts/yadcolor.sh" }
+		#Entry = "Viewnior" { Icon = "viewnior.png";Actions = "Exec viewnior" }
+		#Entry = "Shotwell" { Icon = "shotwell.png";Actions = "Exec shotwell" }
+	}
+	Submenu = "Multimídia" { Icon = "m.png"
+		Entry = "GrooveShark" { Icon = "grooveshark.png";Actions = "Exec iceweasel http://grooveshark.com/a" }
+		Entry = "Smtube" { Icon = "smtube.png";Actions = "Exec smtube" }
+		#Entry = "Winff" { Icon = "winff.png";Actions = "Exec winff" }
+		Entry = "Audacity" { Icon = "audacity.png";Actions = "Exec audacity" }
+		#Entry = "HandBrake" { Icon = "handbrake.png";Actions = "Exec ghb" }
+		Entry = "Open Shot" { Icon = "openshot.png";Actions = "Exec openshot" }
+		#Entry = "Avidemux" { Icon = "openshot.png";Actions = "Exec avidemux2-gtk" }
+		Entry = "alsamixer" { Icon = "mixer.png";Actions = "Exec urxvt -e alsamixer" }
+		#Entry = "Gnormalize" { Icon = "gnormalize.png";Actions = "Exec gnormalize" }
+		#Entry = "Xfburn" { Icon = "xfburn.png";Actions = "Exec xfburn" }
+		Entry = "MOC" { Icon = "moc.png";Actions = "Exec $TERM -title mocp -e mocp" }
+		Submenu = "Rádios" { Icon = "radio.png";
+		    Entry = "TOP 20" { Actions = "Exec $TERM -title cliradio -e ~/MEOCloud/PROGRAMAS/Scripts/./cliradio" }
+		    Entry = "Rock" { Actions = "Exec $TERM -title clirock -e ~/MEOCloud/PROGRAMAS/Scripts/./clirock" }
+		    }
+	}
+	Submenu = "Rede" { Icon = "r.png"
+		Entry = "Dillo" { Icon = "dillo.png";Actions = "Exec dillo" }
+		Entry = "Tor" { Icon = "qupzilla.png";Actions = "Exec /opt/tor-browser_pt-PT/start-tor-browser" }
+		Entry = "Iron" { Icon = "chromium.png";Actions = "Exec /opt/iron-linux-64/iron --proxy-server="localhost:8118"" }
+		Entry = "Superbird" { Icon = "chromium.png";Actions = "Exec /opt/superbird/superbird --proxy-server="localhost:8118"" }
+		#Entry = "Pidgin" { Icon = "pidgin.png";Actions = "Exec pidgin" }
+		#Entry = "Privanote" { Icon = "hexchat.png";Actions = "Exec firefox https://privnote.com/" }
+		#Entry = "Polly" { Icon = "polly.png";Actions = "Exec polly" }
+		#Entry = "Liferea" { Icon = "liferea.png";Actions = "Exec liferea" }
+		#Entry = "QbitTorrent" { Icon = "qbittorrent.png";Actions = "Exec qbittorrent" }
+		#Entry = "Dropbox" { Icon = "dropbox.png";Actions = "Exec dropboxd" }
+		Entry = "Filezilla" { Icon = "filezilla.png";Actions = "Exec filezilla" }
+	}
+	Submenu = "Customize" { Icon = "c.png"
+		Entry = "Aparência" { Icon = "lxappearance.png";Actions = "Exec lxappearance" }
+		#Entry = "Notificaçôes" { Icon = "preferences-system-notifications.png";Actions = "Exec xfce4-notifyd-config" }
+		#Entry = "Wbar Config" { Icon = "wbar-config.png";Actions = "Exec wbar-config" }
+		Entry = "Tintwizard" { Icon = "tintwizard.png";Actions = "Exec geany ~/.config/tint2/tint2rc" }
+		#Entry = "Conky Editor" { Icon = "conky.png";Actions = "Exec geany ~/.conkyrc" }
+		Entry = "Menu Editor" { Icon = "menu-editor.png";Actions = "Exec geany ~/.pekwm/menu" }
+		Entry = "Icons Menu" { Icon = "icons-menu.png";Actions = "Exec xfe ~/.pekwm/icons" }
+		Submenu = "Pekwm_Wallpaper" { Icon = "jockey.png"
+			Entry { Actions = "Dynamic $_PEKWM_SCRIPT_PATH/mkbg.sh ~/Imagens/Wall" }
+		}
+	}
+	Submenu = "Sistema" { Icon = "s.png"
+		Entry = "LXTask" { Icon = "lxtask.png";Actions = "Exec lxtask" }
+		#Entry = "Htop" { Icon = "htop.png";Actions = "Exec $TERM -title htop -e htop" }
+		Entry = "Gparted" { Icon = "gparted.png";Actions = "Exec gksudo gparted" }
+		Entry = "Unetbootin" { Icon = "unetbootin.png";Actions = "Exec gksudo unetbootin" }
+		Entry = "Manjaro Settings" { Icon = "manjaroset.png";Actions = "Exec gksu manjaro-settings-manager-gui" }
+		Entry = "Firewall" { Icon = "thunar.png";Actions = "Exec gksudo gufw" }
+		#Entry = "Octopi" { Icon = "octopi.png";Actions = "Exec octopi" }
+		Submenu = "Pekwm Config" { Icon = "jockey.png"
+			Entry = "Autoproperties" { Icon = "autoproperties.png";Actions = "Exec geany ~/.pekwm/autoproperties" }
+			Entry = "Config" { Icon = "config.png";Actions = "Exec geany ~/.pekwm/config" }
+			Entry = "Keys" { Icon = "keys.png";Actions = "Exec geany ~/.pekwm/keys" }
+			Entry = "Mouse" { Icon = "mouse.png";Actions = "Exec geany ~/.pekwm/mouse" }
+			Entry = "Start" { Icon = "start.png";Actions = "Exec geany ~/.pekwm/start" }
+			Entry = "Vars" { Icon = "vars.png";Actions = "Exec geany ~/.pekwm/vars" }
+		}
+	}
+
+	Separator {}
+
+	Submenu = "Screenshot" { Icon = "gnome-screenshot.png";
+		Entry = "Display Monitor" { Actions = "Exec scrot -d 1 '%Y-%m-%d-%H:%M:%S_$wx$h.png' -e 'mv $f ~/Imagens/Shots/'" }
+		Entry = "Window Border" { Actions = "Exec scrot -u -b '%Y-%m-%d-%H:%M:%S_$wx$h.png' -e 'mv $f ~/Imagens/Shots/'" }
+		Entry = "Window no Border" { Actions = "Exec scrot -u '%Y-%m-%d-%H:%M:%S_$wx$h.png' -e 'mv $f ~/Imagens/Shots/'" }
+		Entry = "Delay 5" { Actions = "Exec scrot -d 5 -c '%Y-%m-%d-%H:%M:%S_$wx$h.png' -e 'mv $f ~/Imagens/Shots/'" }
+		Entry = "Delay 10" { Actions = "Exec scrot -d 10 -c '%Y-%m-%d-%H:%M:%S_$wx$h.png' -e 'mv $f ~/Imagens/Shots/'" }
+		Entry = "Select Area" { Actions = "Exec scrot -s '%Y-%m-%d-%H:%M:%S_$wx$h.png' -e 'mv $f /tmp'" }
+		
+		Separator {}
+		
+		Submenu = "Screencast" {
+			Entry = "Mouse Action" { Actions = "Exec urxvt -title mouse action -e ffmpeg -f x11grab -s 820x640 -follow_mouse 100 -show_region 1 -i :0 -vcodec libx264 -preset ultrafast -qp 0 -y screencast-`date +%d-%m-%Y_%H:%M:%S`.mkv" }
+			Entry = "Display Monitor" { Actions = "Exec urxvt -title Display Monitor -e ffmpeg -f alsa -i default:CARD=MID /tmp/out-`date +%d-%m-%Y_%H:%M:%S`.wav -f x11grab -r 30 -s `xdpyinfo | grep 'dimensions:'|awk '{print $2}'` -i :0.0  -an -vcodec libx264 -preset ultrafast -qp 0 -threads 0 /tmp/screencast-`date +%d-%m-%Y_%H:%M:%S`.mkv; cd /tmp; ffmpeg -i *.mkv -i *.wav -map 0 -map 1 -c:v copy -c:a aac -strict -2 screencast-`date +%d-%m-%Y_%H:%M:%S`.mp4; rm *.wav *.mkv" }
+			Entry = "Display Avconv" { Actions = "Exec urxvt -tittle Display Avconv -e avconv -f alsa -i hw:0 -f x11grab -r 25 -q 50 -s 1366x768+0+0 -i  :0.0 -vcodec libx264 -preset ultrafast -profile:v high444 -threads 4 -y $HOME/Linux/Screencast-`date +%d-%m-%Y_%H:%M:%S`.mkv" }
+			Entry = "Grab WebCam" { Actions = "Exec urxvt -title grab webcam -e ffmpeg -f alsa -i default -f v4l2 -s 640x480 -i /dev/video0 -acodec flac \ -vcodec libx264 screencast-`date +%d-%m-%Y_%H:%M:%S`.mkv" }
+		}
+	}
+    
+    Separator {}
+
+	Submenu = "Go to" { Icon = "goto.png"
+		SubMenu = "Workspace" { Icon = "space.png"
+			# Create goto menu once per pekwm config reload. The fast way that
+			# will work for most if not all users.
+			Icon = "wokspace.png";COMMAND = "$_PEKWM_SCRIPT_PATH/pekwm_ws_menu.sh goto"
+			# Create goto menu every time the menu is opened. The slow way.
+			# This is what you want if you are using external tools to make
+			# the amount of workspaces something else than what you define in
+			# ~/.pekwm/config. You will know if you want this.
+			# Entry = "Dinamic" { Actions = "Dynamic $_PEKWM_SCRIPT_PATH/pekwm_ws_menu.sh goto dynamic" }
+		}
+		Entry = "Focus Client" { Icon = "client.png";Actions = "ShowMenu GotoClient True" }
+		Entry = "Focus Frame" { Icon = "frame.png";Actions = "ShowMenu Goto" }
+	}
+
+	Submenu = "Pekwm" { Icon = "pekwm.png"
+		Submenu = "Themes" { Icon = "themes.png"
+			Entry { Actions = "Dynamic $_PEKWM_SCRIPT_PATH/pekwm_themeset.sh $_PEKWM_THEME_PATH" }
+			Entry { Actions = "Dynamic $_PEKWM_SCRIPT_PATH/pekwm_themeset.sh ~/.pekwm/themes" }
+		}
+		Entry = "Reload" { Icon = "reload.png";Actions = "Reload" }
+		Entry = "Restart" { Icon = "rest.png";Actions = "Restart" }
+	}
+
+	Separator {}
+
+   Submenu = "Session" { Icon = "session.png"
+		    Entry = "Logout" { Icon = "logout.png";Actions = "Exec pekwm --replace" }
+		    Entry = "Suspend" { Icon = "suspend.png";Actions = "Exec systemctl suspend" }
+		    Entry = "Hibernate" { Icon = "restart.png";Actions = "Exec systemctl hibernate" }
+		    Entry = "Reboot" { Icon = "restart.png";Actions = "Exec systemctl reboot" }
+		    Entry = "Shutdown" { Icon = "shutdown.png";Actions = "Exec systemctl poweroff" }
+	        }
+
+	}
+}
+
+WindowMenu = "Window Menu" {
+	Entry = "(Un)Stick" { Actions = "Toggle Sticky" }
+	Entry = "(Un)Shade" { Actions = "Toggle Shaded" }
+	Entry = "Iconify" { Actions = "Set Iconified" }
+	Entry = "Command.." { Actions = "ShowCmdDialog" }
+
+	Submenu = "Maximize" {
+		Entry = "Toggle Full" { Actions = "Toggle Maximized True True" }
+		Entry = "Toggle Horizontal" { Actions = "Toggle Maximized True False" }
+		Entry = "Toggle Vertical" { Actions = "Toggle Maximized False True" }
+	}
+	Submenu = "Fill" {
+		Entry = "Full" { Actions = "MaxFill True True" }
+		Entry = "Horizontal" { Actions = "MaxFill True False" }
+		Entry = "Vertical" { Actions = "MaxFill False True" }
+	}
+	Submenu = "Stacking" {
+		Entry = "Raise" { Actions = "Raise" }
+		Entry = "Lower" { Actions = "Lower" }
+		Entry = "Toggle Always On Top" { Actions = "Toggle AlwaysOnTop" }
+		Entry = "Toggle Always Below" { Actions = "Toggle AlwaysBelow" }
+	}
+	Submenu = "Decorations" {
+		Entry = "Toggle Decorations" { Actions = "Toggle DecorBorder; Toggle DecorTitlebar" }
+		Entry = "Toggle Borders" { Actions = "Toggle DecorBorder" }
+		Entry = "Toggle Titlebar" { Actions = "Toggle DecorTitlebar" }
+	}
+	Submenu = "Skip" {
+		Entry = "Toggle showing this frame in menus" { Actions = "Toggle Skip Menus" }
+		Entry = "Toggle including this frame in focus toggle" { Actions = "Toggle Skip FocusToggle" }
+		Entry = "Toggle if this frame snaps to other windows" { Actions = "Toggle Skip Snap" }
+	}
+	SubMenu = "Send To" {
+		# Create sendto menu once per pekwm config reload. The fast way that
+		# will work for most if not all users.
+		COMMAND = "$_PEKWM_SCRIPT_PATH/pekwm_ws_menu.sh send"
+		# Create sendto menu every time the menu is opened. The slow way.
+		# This is what you want if you are using external tools to make
+		# the amount of workspaces something else than what you define in
+		# ~/.pekwm/config. You will know if you want this.
+		# Entry = "" { Actions = "Dynamic $_PEKWM_SCRIPT_PATH/pekwm_ws_menu.sh send dynamic" }
+	}
+	Separator {}
+	Entry = "Close" { Actions = "Close" }
+	Submenu = "Kill" { Entry = "Kill application" { Actions = "Kill" } }
+}

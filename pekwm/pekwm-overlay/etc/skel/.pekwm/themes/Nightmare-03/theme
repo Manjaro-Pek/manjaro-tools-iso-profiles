@@ -1,0 +1,480 @@
+
+#===================================================================================
+#
+#
+# 		 _   _ _       _     _                            
+#		| \ | (_)     | |   | |                           
+#		|  \| |_  __ _| |__ | |_ _ __ ___   __ _ _ __ ___ 
+#		| . ` | |/ _` | '_ \| __| '_ ` _ \ / _` | '__/ _ \
+#		| |\  | | (_| | | | | |_| | | | | | (_| | | |  __/
+#		\_| \_/_|\__, |_| |_|\__|_| |_| |_|\__,_|_|  \___|
+#		          __/ |                                   
+#		         |___/                                    
+#
+#  
+#            
+#  		       "Nightmare" for pekwm
+#  			By Gilbert Flores
+#  			Date: June 13, 2012
+#			Inspired in "Nightmare mini suite" by ~BrushAway
+#                                         
+#==================================================================================
+
+
+
+#########################################
+#		FONT			#
+#########################################
+
+$FONT_WINDOW = "PF Arma Five:size=8#CENTER#XFT"
+$FONT = "Cantarell:size=8#XFT"
+
+#$FONT_WINDOW = "kroeger 05_55:size=12#CENTER#XFT"
+#$FONT = "kroeger 05_55:size=12#XFT"
+
+#$FONT = "nu:size=12#XFT"
+#$FONT_WINDOW = "nu:size=12#CENTER#XFT"
+
+#########################################
+#		Decor			#
+#########################################
+
+Require {
+	Templates = "True"
+}
+
+##-------------------------TEMPLATES------------------>
+
+Define = "BaseDecor" {
+	Height = "0"
+	Pad = "0 0 0 0"
+	Focused = "Empty"
+	Unfocused = "Empty"
+	Tab {
+		Focused = "Empty"
+		FocusedSelected = "Empty"
+		Unfocused = "Empty"
+		UnfocusedSelected = "Empty"
+	}
+	Separator {
+		Focused = "Empty"
+		Unfocused = "Empty"
+	}
+	Font {
+		Focused = "$FONT"
+	}
+	FontColor {
+		Focused = "Empty"
+		FocusedSelected = "Empty"
+		Unfocused = "Empty"
+		UnfocusedSelected = "Empty"
+	}
+	Buttons {
+		Right = "Close" {
+			Focused = "Empty"
+			Unfocused = "Empty"
+			Pressed = "Empty"
+			Hover = "Empty"
+			Button = "1" { Actions = "Close" }
+			Button = "3" { Actions = "Kill" }
+		}
+		Right = "Maximize" {
+			Focused = "Empty"
+			Unfocused = "Empty"
+			Pressed = "Empty"
+			Hover = "Empty"
+			Button = "1" { Actions = "Toggle Maximized" }
+		}
+		Right = "Iconify" {
+			Focused = "Empty"
+			Unfocused = "Empty"
+			Pressed = "Empty"
+			Hover = "Empty"
+			Button = "1" { Actions = "Set Iconified" }
+		}
+		Left = "Shade" {
+			Focused = "Empty"
+			Unfocused = "Empty"
+			Pressed = "Empty"
+			Hover = "Empty"
+			Button = "1" { Actions = "Toggle Shaded" }
+		}
+	}
+}
+
+
+Define = "WinDecor" {
+	Height = "14"
+	Pad = "1 1 2 2"
+	Focused = "Image wtitle.png#Scaled"
+	Unfocused = "Image wtitle.png#Scaled"
+	Tab {
+		Focused = "Image wtitle.png#Scaled"
+		FocusedSelected = "Image wtitle.png#Scaled"
+		Unfocused = "Image wtitle.png#Scaled"
+		UnfocusedSelected = "Image wtitle.png#Scaled"
+	}
+	Separator {
+		Focused = "Image Wseparator.png"
+		Unfocused = "Image Wseparator.png"
+
+	}
+	Font {
+		Focused = "$FONT_WINDOW"
+	}
+	FontColor {
+		Focused = "#696969"
+		FocusedSelected = "#ffffff"
+		Unfocused = "#181818"
+		UnfocusedSelected = "#181818"
+	}
+	Buttons {
+		Right = "Close" {
+			Focused = "Image Bcf.png"
+			Unfocused = "Image BU.png"
+			Pressed = "Image Bch.png"
+			Hover = "Image Bch.png"
+			Button = "1" { Actions = "Close" }
+			Button = "3" { Actions = "Kill" }
+		}
+		Right = "Maximize" {
+			Focused = "Image Bmf.png"
+			Unfocused = "Image BU.png"
+			Pressed = "Image Bmh.png"
+			Hover = "Image Bmh.png"
+			Button = "1" { Actions = "Toggle Maximized" }
+		}
+		Right = "Iconify" {
+			Focused = "Image Bif.png"
+			Unfocused = "Image BU.png"
+			Pressed = "Image Bih.png"
+			Hover = "Image Bih.png"
+			Button = "1" { Actions = "Set Iconified" }
+		}
+
+		
+		Left = "Shade" {
+			Focused = "Image Bsf.png"
+			Unfocused = "Image Bsf.png"
+			Pressed = "Image Bsh.png"
+			Hover = "Image Bsh.png"
+			Button = "1" { Actions = "Toggle Shaded" }
+		}
+	}
+}
+
+Define = "TitleBorder" {
+	Border {
+		Focused {
+			TopLeft = "Image wtl.png"
+			Top = "Image wt.png"
+			TopRight = "Image wtr.png"
+			Left =  "Solid #000000 1x1"
+			Right = "Solid #000000 1x1"
+			#Left =  "Image wborder.png"
+			#Right = "Image wborder.png"
+			BottomLeft = "Image wbottoml.png"
+			Bottom = "Image wbottom.png"
+			BottomRight = "Image wbottomr.png"
+
+		}
+		Unfocused {
+			TopLeft = "Image wtl.png"
+			Top = "Image wt.png"
+			TopRight = "Image wtr.png"
+			Left =  "Solid #000000 1x1"
+			Right = "Solid #000000 1x1"
+			BottomLeft = "Image wbottoml.png"
+			Bottom = "Image wbottom.png"
+			BottomRight = "Image wbottomr.png"
+		}
+	}
+}
+
+
+Define = "WspDecor" {
+	Border {
+		Focused {
+			TopLeft = "Image workspaces-tl.png"
+			Top = "Image workspaces-top.png"
+			TopRight = "Image workspaces-tr.png"
+			Left = "Image workspaces-l.png"
+			Right = "Image workspaces-r.png"
+			BottomLeft = "Image workspaces-bottoml.png"
+			Bottom = "Image workspaces-bottom.png"
+			BottomRight = "Image workspaces-bottomr.png"
+		}
+		Unfocused {
+			TopLeft = "Image workspaces-tl.png"
+			Top = "Image workspaces-top.png"
+			TopRight = "Image workspaces-tr.png"
+			Left = "Image workspaces-l.png"
+			Right = "Image workspaces-r.png"
+			BottomLeft = "Image workspaces-bottoml.png"
+			Bottom = "Image workspaces-bottom.png"
+			BottomRight = "Image workspaces-bottomr.png"
+		}
+	}
+}
+
+
+Define = "StippledBorder" {
+	Border {
+		Focused {
+			TopLeft = "Image Ttl.png"
+			Top = "Image Tt.png"
+			TopRight = "Image Ttr.png"
+			Left =  "Image wborder.png"
+			Right = "Image wborder.png"
+			BottomLeft = "Image wbottoml.png"
+			Bottom = "Image wbottom.png"
+			BottomRight = "Image wbottomr.png"
+		}
+		Unfocused {
+
+			TopLeft = "Image Ttl.png"
+			Top = "Image Tt.png"
+			TopRight = "Image Ttr.png"
+			Left =  "Image wborder.png"
+			Right = "Image wborder.png"
+			BottomLeft = "Image wbottoml.png"
+			Bottom = "Image wbottom.png"
+			BottomRight = "Image wbottomr.png"
+		}
+	}
+}
+
+
+Define = "MenuBorder" {
+	Border {
+		Focused {
+			TopLeft = "Image mtl.png"
+			Top = "Image mtop.png"
+			TopRight = "Image mtr.png"
+			Left =  "Image ml.png"
+			Right = "Image mr.png"
+			BottomLeft = "Image mbottoml.png"
+			Bottom = "Image mbottom.png"
+			BottomRight = "Image mbottomr.png"
+		}
+		Unfocused {
+
+			TopLeft = "Image mtl.png"
+			Top = "Image mtop.png"
+			TopRight = "Image mtr.png"
+			Left =  "Image ml.png"
+			Right = "Image mr.png"
+			BottomLeft = "Image mbottoml.png"
+			Bottom = "Image mbottom.png"
+			BottomRight = "Image mbottomr.png"
+		}
+	}
+}
+
+
+Define = "CmdBorder" {
+	Border {
+		Focused {
+			TopLeft = "Image ctl.png"
+			Top = "Image ctop.png"
+			TopRight = "Image ctr.png"
+			Left =  "Image cl.png"
+			Right = "Image cr.png"
+			BottomLeft = "Image cbottoml.png"
+			Bottom = "Image cbottom.png"
+			BottomRight = "Image cbottomr.png"
+		}
+		Unfocused {
+
+			TopLeft = "Image ctl.png"
+			Top = "Image ctop.png"
+			TopRight = "Image ctr.png"
+			Left =  "Image cl.png"
+			Right = "Image cr.png"
+			BottomLeft = "Image cbottoml.png"
+			Bottom = "Image cbottom.png"
+			BottomRight = "Image cbottomr.png"
+		}
+	}
+}
+
+
+
+Define = "StatusDecor"
+{
+	Focused = "Empty"
+			Unfocused = "Empty"
+	
+			Tab {
+				Focused = "Empty"
+				FocusedSelected = "Empty"
+				Unfocused = "Empty"
+				UnfocusedSelected = "Empty"
+			}
+			Separator {
+				Focused = "Empty"
+				Unfocused = "Empty"
+			}
+			Font {
+				Focused = "Empty"
+			}
+			FontColor {
+				Focused = "Empty"
+				FocusedSelected = "Empty"
+				Unfocused = "Empty"
+				UnfocusedSelected = "Empty"
+			}
+			Buttons {
+			}
+	                Border {  
+	                      Focused {
+				TopLeft = "Empty"
+				Top = "Empty"
+				TopRight = "Empty"
+				Left =  "Empty"
+				Right = "Empty"
+				BottomLeft = "Empty"
+				Bottom = "Empty"
+				BottomRight = "Empty"
+			}
+			Unfocused {
+				TopLeft = "Empty"
+				Top = "Empty"
+				TopRight = "Empty"
+				Left = "Empty"
+				Right = "Empty"
+				BottomLeft = "Empty"
+				Bottom = "Empty"
+				BottomRight = "Empty"
+		}
+	}
+}
+
+
+##--------------------------------------DECORACION----------------->@StippledBorder
+
+PDecor {
+	Decor = "Default" {
+		Title {
+			@WinDecor
+			@TitleBorder
+		}
+	}
+	Decor = "Menu" {
+		Title {
+			@BaseDecor
+			@MenuBorder
+		}
+	}
+	Decor = "WorkspaceIndicator" {
+		Title {
+			@BaseDecor
+			@WspDecor
+		}
+	}
+	Decor = "CmdDialog" {
+		Title {
+			@BaseDecor
+			@CmdBorder
+		}
+	}
+	Decor = "StatusWindow" {
+		Title {
+			@StatusDecor
+			
+		}
+	}
+	Decor = "Terminal" {
+		Title {
+			@BaseDecor
+			@StippledBorder
+		}
+	}
+	Decor = "Harbour" {
+		Title {
+			@BaseDecor
+			@StippledBorder
+		}
+	}
+}
+
+
+
+
+#########################################
+#		Menu			#
+#########################################
+
+Menu {
+	Pad = "2 2 3 5"
+	Focused {
+		Font = "$FONT"
+		Background = "Solid #181818"
+		Item = "Empty"
+		Text = "#ffffff"
+		Separator = "Image separator-menu.png#Scaled"
+		Arrow = "Image arrowU.png"
+	}
+	Unfocused {
+		Font = "$FONT"
+		Background = "Solid #181818"
+		Item = "Empty"
+		Text = "#ffffff"
+		Separator = "Image separator-menu.png#Scaled"
+		Arrow = "Image arrowU.png"
+	}
+	Selected {
+		Font = "$FONT"
+		Background = "Empty"
+		Item ="SolidRaised #7f1e31 #C2304E #C2304E 1  0"
+		#Item = "Empty"
+		Text = "#ffffff"
+		Arrow = "Image arrowF.png"
+	}
+}
+
+#########################################
+#		Harbour			#
+#########################################
+
+Harbour {
+	Texture = "SolidRaised #181818 #000000 #000000 1  0"
+#	Texture = "Image harbour.png"
+#	Texture = "Empty"
+}
+
+#########################################
+#		CmdDialog		#
+#########################################
+
+CmdDialog {
+	Font = "$FONT"
+	Texture = "Solid #181818"
+	Text = "#ffffff"
+	Pad = "5 5 1 1"
+}
+
+#########################################
+#		Status			#
+#########################################
+
+Status {
+	Font = "$FONT"
+	Texture = "Solid #181818"
+	Text = "#ffffff"
+	Pad = "0 1 4 4"
+}
+
+#########################################
+#		Workspace Indicator	#
+#########################################
+
+WorkspaceIndicator {
+	Font = "$FONT"
+	Background = "Solid #181818"
+	Workspace = "Image workspaces-u.png"
+	WorkspaceActive = "Image workspaces-f.png"
+	Text = "#ffffff"
+	EdgePadding = "5"
+	WorkspacePadding = "5"
+}

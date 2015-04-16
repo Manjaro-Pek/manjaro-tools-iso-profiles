@@ -1,0 +1,151 @@
+### Manjaro Packages
+
+## Xorg Packages
+libdnet
+mesa-demos
+>x86_64 lib32-mesa-demos
+uriparser
+xf86-input-acecad
+xf86-input-aiptek
+xf86-input-evdev
+xf86-input-joystick
+xf86-input-keyboard
+xf86-input-mouse
+xf86-input-synaptics
+xf86-input-void
+xf86-input-wacom
+#xf86-video-ati
+#xf86-video-nouveau
+#xf86-video-intel
+#xf86-video-vesa
+#virtualbox-guest-utils
+#KERNEL-virtualbox-guest-modules
+xinetd
+xorg-server
+xorg-server-utils
+xorg-twm
+xorg-utils
+xorg-xinit
+
+
+## Sound and Audio
+manjaro-alsa
+alsa-firmware
+alsa-plugins
+mpv
+mpg123
+
+## File Management
+xfe
+
+## Graphical Installer
+thus
+
+## Network Management
+netctl
+#networkmanager
+#networkmanager-dispatcher-ntpd
+#network-manager-applet
+#networkmanager-openconnect
+#networkmanager-openvpn
+#networkmanager-pptp
+#networkmanager-vpnc
+#openresolv
+dillo
+newsbeuter
+weechat
+youtube-viewer
+
+## Multimedia Support
+#gst-libav
+#gst-plugins-bad
+#gst-plugins-base
+#gst-plugins-good
+#gst-plugins-ugly
+#gstreamer0.10-bad-plugins
+#gstreamer0.10-base-plugins
+#gstreamer0.10-good-plugins
+#gstreamer0.10-ugly-plugins
+#flashplugin
+#libdvdcss
+vorbis-tools
+ffmpeg
+handbrake-cli
+
+## Image Support
+feh
+imagemagick
+scrot
+
+## Polkit
+#gksu
+#gnome-keyring
+#lxsession
+#polkit-gnome
+
+## Basic packages
+#dconf
+#desktop-file-utils
+
+## AUR Access
+#autoconf
+#automake
+#binutils
+#bison
+#fakeroot
+#flex
+#gcc
+#libtool
+#m4
+#make
+#patch
+#yaourt
+
+## Display Manager
+#lxdm
+
+## Desktop Display
+#compton
+#conky
+#xfce4-notifyd
+dunst
+xorg-xmessage
+
+## Pekwm Core Packages
+
+rxvt-unicode
+pekwm
+python2-xdg 	 # Enable use of .desktop files in /etc/xdg
+tint2
+
+## Desktop Configuration
+lxappearance
+
+## Artwork, Icon, Mouse, and Desktop Themes
+menda-circle-icon-theme
+menda-square-icon-theme
+openbox-themes
+menda-themes
+menda-themes-dark
+xcursor-vanilla-dmz-aa
+xcursor-menda
+manjarobox-evolution-themes
+unified-manjaro-themes-openbox
+lxdm-manjaro-theme-openbox
+
+
+## Applications
+ufw
+inxi
+htop
+calcurse
+
+## Greeter
+#manjaro-welcome
+
+## Fonts
+adobe-source-sans-pro-fonts
+ttf-droid
+
+# Documentaion Guide
+#manjaro-documentation

@@ -86,11 +86,10 @@ zip
 
 ## encrypt support
 ecryptfs-utils
-rsync
 lsof
 
 ## needed by cli-installer
-# dialog
+dialog
 # dmidecode
 # gptfdisk
 # parted
@@ -131,14 +130,14 @@ ipw2100-fw
 ipw2200-fw
 iw
 mobile-broadband-provider-info
-modemmanager
+#modemmanager
 nbd
 KERNEL-ndiswrapper
 ndiswrapper-utils
 rp-pppoe
 usb_modeswitch
-wpa_actiond
-wpa_supplicant
+#wpa_actiond
+#wpa_supplicant
 zd1211-firmware
 
 ## Laptop power management

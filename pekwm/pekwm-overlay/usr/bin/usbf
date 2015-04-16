@@ -1,0 +1,51 @@
+#!/bin/bash
+VER=0.2
+NC="\033[0m"
+YELLOW="\033[1;33m"
+GREL="\033[7;32m"
+GRE="\033[1;32m"
+function pause() {
+   echo -n "Press ENTER to end ..."
+   while read -r -n 1 -s answer; do
+      break
+   done
+}
+clear
+echo -e "$YELLOW        _   _    _      ___       __    "
+echo -e "       | | | |__| |__  |_ _|_ _  / _|___       "
+echo -e "       | |_| (_-< '_ \  | || ' \|  _/ _ \      "
+echo -e "        \___//__/_.__/ |___|_||_|_| \___/   $VER"
+echo -e "                                               $NC"
+echo -e "$GREL     Proposal of command line to format USB key      $NC"
+echo
+usb_search=`ls -l /dev/disk/by-path/*-usb-* 2> /dev/null`
+if [[ $usb_search == "" ]]
+then
+   echo -e "$GRE Please insert a USB key$NC"
+   echo
+   pause
+   echo
+   echo
+   exit 1
+fi
+echo -e "   USB          Go\t$YELLOW Command to use for$NC"
+echo -e "-------------------------------------------"
+ListeCle=()
+TailleCle=()
+nbval=0
+for cle in $(ls -l /dev/disk/by-path/*-usb-* | sed -n -e 's/.*\///' -e /[a-z]$/p | sort -d)
+do
+   ListeCle[$nbval]="/dev/"$cle
+   taille=`fdisk -s ${ListeCle[$nbval]}`
+   TailleCle[$nbval]=$(((taille + 500000) / 1000000))
+   echo -e ${ListeCle[$nbval]}"        "${TailleCle[$nbval]}"\t$YELLOW FAT 32$NC  sudo mkfs.vfat -I -F 32 "${ListeCle[$nbval]}
+   echo -e "\t                $YELLOW FAT 16$NC  sudo mkfs.vfat -I -F 16 "${ListeCle[$nbval]}
+   echo -e "\t                $YELLOW Ext3$NC    sudo mkfs.ext3 "${ListeCle[$nbval]}
+   echo -e "\t                $YELLOW Ext4$NC    sudo mkfs.ext4 "${ListeCle[$nbval]}
+   echo
+   ((nbval++))
+done
+echo
+pause
+echo
+echo

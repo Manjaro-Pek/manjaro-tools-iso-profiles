@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+
+
+#### see topics for more info
+# http://linuxconfig.org/how-to-test-microphone-with-audio-linux-sound-architecture-alsa
+#
+
+mkdir -p $HOME/Ffscreen
+mkdir -p /tmp/.ffscreen_work
+
+INPUT=default:CARD=MID
+
+ffmpeg -f alsa -i $INPUT /tmp/.ffscreen_work/out-`date +%d-%m-%Y_%H:%M:%S`.wav -f x11grab -r 30 -s `xdpyinfo | grep 'dimensions:'|awk '{print $2}'` -i :0.0  -an -vcodec libx264 -preset ultrafast -qp 0 -threads 0 /tmp/.ffscreen_work/screencast-`date +%d-%m-%Y_%H:%M:%S`.mkv
+	
+cd /tmp/.ffscreen_work; ffmpeg -i *.mkv -i *.wav -map 0 -map 1 -c:v copy -c:a aac -strict -2 screencast-`date +%d-%m-%Y_%H:%M:%S`.mp4;rm *.wav *.mkv; HandBrakeCLI -i *.mp4 -o screencast-`date +%d-%m-%Y_%H:%M:%S`.mkv -m -E copy --audio-copy-mask ac3,dts,dtshd --audio-fallback ffac3 -e x264 -q 20 -x level=4.1:ref=4:b-adapt=2:direct=auto:me=umh:subq=8:rc-lookahead=50:psy-rd=1.0,0.15:deblock=-1,-1:vbv-bufsize=30000:vbv-maxrate=40000:slices=4; rm *.mp4; mv *.mkv $HOME/Ffscreen

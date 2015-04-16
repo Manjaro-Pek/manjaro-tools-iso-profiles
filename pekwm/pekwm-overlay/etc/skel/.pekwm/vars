@@ -1,0 +1,5 @@
+#$TERM = "urxvtc"
+#$TERM = "urxvtc -pe tabbed -e fish"
+$TERM = "urxvtc -pe tabbed"
+#$TERM = "URxvt.perl-ext-common: default,tabbed"
+#$BROWSER = "dillo"

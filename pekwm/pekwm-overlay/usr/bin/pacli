@@ -1,0 +1,246 @@
+#!/bin/bash
+
+#  20.02.2015 03:17:16
+
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#  
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#  
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#  MA 02110-1301, USA.
+#  
+
+########################################################
+# designe based on IceFox script                       #
+# Modificado e aperfeiçoado por pekman                 #
+# Contact and sugestions: pekman@openmailbox.org       #
+# Freenode: #manjaro #manjaropek #manjaro-br           #
+########################################################
+
+# set colors
+RED='\e[41m'
+BLUE='\e[44m'
+ORANGE='\e[46m'
+NC='\e[0m'
+    while true; do
+    clear
+    echo ""
+    echo -e "                   \e[47;3;32m Frontend Bash for Pacman/Yaourt - pacli \033[0m "
+    echo " --------------------------------------------------------------------------"
+    echo -e "                \e[33;5;1m (✌╰_╯)☞ \e[m$RED CUIDADO! USE COM MODERAÇÃO $NC\e[33;5;1m ¯\_(ツ)_/¯ \e[m"
+    echo -e " ··············································································"
+    echo -e " ·  $NC  1 $NC  Atualizar Sistema                   $NC  2 $NC  Otimizar Mirrors          ·"
+    echo -e " ·  $NC  3 $NC  Corrigir Database                   $NC  4 $NC  Limpar Cache              ·"
+    echo -e " ·  $NC  5 $NC  Procurar Pacote                     $NC  6 $NC  Informação do Pacote      ."
+    echo -e " ·  $NC  7 $NC  Instalar Pacote                     $NC  8 $NC  Detalha Pacote Instalado  ."
+    echo -e " ·  $NC  9 $NC  Remover Pacote                      $NC 10 $NC  Remover Pacote + Deps     ·"
+    echo -e " ·  $NC 11 $NC  Listar Pacotes Orfãos               $NC 12 $NC  Remover Pacotes Órfãos    ·"
+    echo -e " ·  $NC 13 $NC  Lista Local                         $NC 14 $NC  Árvore de Dependencias    ·"
+    echo -e " ·  $NC 15 $NC  Paoctes Intalados                   $NC 16 $NC  Pacotes não Oficiais      ·"
+    echo " ··············································································"
+    echo ""
+    echo " ··············································································"
+    echo -e " ·  $NC 17 $NC  Update AUR                          $NC 18 $NC  Search AUR                ·"
+    echo -e " ·  $NC 19 $NC  Install From AUR                    $NC 20 $NC  Remove C/ AUR             ·"
+    echo " ··············································································"
+    echo ""
+    echo -e " $BLUE selecione um numero de 1 a 20 e aperte [Enter]$NC"
+    echo ""
+    read choix
+    case $choix in
+        1)
+            echo
+            notify-send -h int:value:42 "Atualizando o sistema"; sudo pacman -Syyuu; notify-send -h int:value:42 "Atualização completa"
+            echo ""
+            echo -e "\033[42;1;37m Seu sistema está atualizado. Para retornar ao pacli use a tecla ENTER \033[0m"
+            read
+            ;;
+        2)
+            echo
+            sudo pacman-mirrors -g
+            echo ""
+            echo -e "\033[42;1;37m Mirrors Otimizados. Para retornar ao pacli use a tecla ENTER \033[0m"
+            read
+            ;;
+        3)
+            echo
+            sudo pacman-optimize
+            echo ""
+            echo -e "\033[42;1;37m Base de dados do Pacman otimizada. Para retornar ao pacli use a tecla ENTER \033[0m"
+            read
+            ;;
+        4)
+            echo
+            paccache -ruk0
+            echo ""
+            echo -e "\033[42;1;37m Cache do Pacman foi limpo. Para retornar ao pacli use a tecla ENTER \033[0m"
+            read
+            ;;
+        5)
+            echo ""
+            echo "Deseja procurar um pacote? Coloque o nome abaixo e confirme"
+            echo ""
+            read searchpackage
+            pacman -Ss $searchpackage
+            echo ""
+            echo -e "\033[42;1;37m A pesquisa foi concluida. Para retornar ao pacli use a tecla ENTER \033[0m"
+            read
+            ;;
+        6)
+            echo ""
+            echo "Deseja verificar informações espcíficas de um pacote? Coloque o nome abaixo e confirme"
+            echo ""
+            read searchpackage
+            pacman -Si $searchpackage
+            echo ""
+            echo -e "\033[42;1;37m A busca por informações terminou. Para retornar ao pacli use a tecla ENTER \033[0m"
+            read 
+			;;
+        7)
+            echo ""
+            echo "Deseja instalar um pacote? Coloque o nome abaixo e confirme"
+            echo ""
+            read installpackage
+            notify-send -h int:value:42 "Vamos instalar -print $installpackage"; sudo pacman -S $installpackage; notify-send -h int:value:42 "Operação terminada"
+            echo ""
+            echo -e "\033[42;1;37m A instalação do pacote terminou. Para retornar ao pacli use a tecla ENTER \033[0m"
+            read
+            ;;
+        8)
+            echo ""
+            echo "Deseja verificar informações espcíficas de um pacote? Coloque o nome abaixo e confirme"
+            echo ""
+            read searchpackage
+            pacman -Qi $searchpackage
+            echo ""
+            echo -e "\033[42;1;37m Para retornar ao pacli use a tecla ENTER \033[0m"
+            read
+            ;;
+        9)
+            echo ""
+            echo "Deseja desinstalar um pacote e manter as dependências relacionadas? Coloque o nome abaixo e confirme"
+            echo ""
+            read uninstallpackage
+            sudo pacman -R $uninstallpackage
+            echo ""
+            echo -e "\033[42;1;37m Ação concluida. Para retornar ao pacli use a tecla ENTER \033[0m"
+            read
+            ;;
+        10)
+			echo ""
+            echo "Deseja desinstalar um pacote e sua dependências? Isso vai remover todos eles após a confirmação. E erros podem acontecer"
+            echo ""
+            read uninstallpackage
+            sudo pacman -Rsn $uninstallpackage
+            echo ""
+            echo -e "\033[42;1;37m Ação concluida. Para retornar ao pacli use a tecla ENTER \033[0m"
+            read
+            ;;
+        11)
+            echo ""
+            echo "Verifica a existência de pacotes Orfãos"
+            pacman -Qqdt
+            echo ""
+            echo -e "\033[42;1;37m Verificação concluída. Para retornar ao pacli use a tecla ENTER \033[0m"
+            read        
+            ;;
+        12)
+            echo ""
+            echo "Deseja desinstalar os pacotes órfãos? Isso vai remover todos eles após a confirmação. E erros podem acontecer"
+            echo ""
+            read uninstallpackage
+            sudo pacman -Rncs $(pacman -Qqdt)
+            echo ""
+            echo -e "\033[42;1;37m Tarefa concluída. Para retornar ao pacli use a tecla ENTER \033[0m"
+            read
+            ;;
+        13)
+            echo ""
+            echo "Deseja listar os locais de instalações de um programa? coloque o nome correto abaixo e tecle enter"
+            echo ""
+            read Packcage
+            pacman -Ql $Packcage
+            echo ""
+            echo -e "\033[42;1;37m Tarefa concluída. Para retornar ao pacli use a tecla ENTER \033[0m"
+            read 
+            ;;
+        14)
+            echo ""
+            echo "Deseja exibir a árvore de depedência de um programa? coloque o nome correto abaixo e tecle enter"
+            echo ""
+            read Packcage
+            pactree $Packcage >> pactree.txt; $EDITOR pactree.txt; rm pactree.txt
+            echo ""
+            echo -e "\033[42;1;37m Tarefa concluída. Para retornar ao pacli use a tecla ENTER \033[0m"
+            read
+            ;;
+        15)
+            echo ""
+            cd /tmp; pacman -Qet >> packs.txt; $EDITOR packs.txt; rm packs.txt
+            echo ""
+            echo -e "\033[42;1;37m Sua lista de pacotes foi exportada. Agora use o ENTER \033[0m"
+            read     
+            ;;
+        16)
+            echo ""
+            cd /tmp; pacman -Qem >> unoficial.txt; $EDITOR unoficial.txt; rm unoficial.txt
+            echo ""
+            echo -e "\033[42;1;37m Sua lista de pacotes foi exportada. Agora use o ENTER \033[0m"
+            read     
+            ;;
+        17)
+            echo ""
+            echo "Para atualizar os pacotes do AUR tecle ENTER. Em seguida forneça a senha de usuário"
+            yaourt -Syyuua
+            echo ""
+            echo -e "\033[42;1;37m Não há mais nada a fazer. Para retornar ao pacli use a tecla ENTER \033[0m"
+            read     
+            ;;
+        18)
+            echo ""
+            echo "Deseja procurar um pacote no AUR? Coloque o nome abaixo e confirme"
+            echo ""
+            read searchpackage
+            yaourt -Ss $searchpackage 
+            echo ""           
+            echo -e "\033[42;1;37m Pesquisa concluida. Para retornar ao pacli use a tecla ENTER \033[0m"
+            read
+            ;;
+        19)
+            echo ""
+            echo "Deseja instalar um pacote do AUR? coloque o nome correto abaixo e tecle enter"
+            echo ""
+            read Packcage
+            yaourt -S $Packcage
+            echo ""
+            echo -e "\033[42;1;37m Tarefa concluída. Para retornar ao pacli use a tecla ENTER \033[0m"
+            read 
+            ;;
+        20)
+            echo ""
+            echo "Deseja remover um pacote do AUR? coloque o nome correto abaixo e tecle enter"
+            echo ""
+            read Packcage
+            yaourt -R $Packcage
+            echo ""
+            echo -e "\033[42;1;37m Tarefa concluída. Para retornar ao pacli use a tecla ENTER \033[0m"
+            read
+            ;;
+        *)
+            echo -e "$RED Opção incorreta $NC"
+            echo "aguarde e tente novamente..."
+            echo ""
+            sleep 3
+            clear
+            ;;
+    esac
+    done
+fi

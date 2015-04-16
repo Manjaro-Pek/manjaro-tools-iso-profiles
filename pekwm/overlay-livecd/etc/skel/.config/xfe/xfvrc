@@ -1,0 +1,12 @@
+[OPTIONS]
+width=640
+textfont=Titillium Web [unknown],100,normal,regular
+showtoolbar=1
+showstatusbar=1
+height=738
+
+[SETTINGS]
+tippause=500
+basecolor=#222222
+tiptime=10000
+

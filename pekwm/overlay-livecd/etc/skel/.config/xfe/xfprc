@@ -1,0 +1,11 @@
+[OPTIONS]
+height=699
+width=1364
+showtoolbar=1
+filename=/media/usb0/Neton/debian novo/Linux/compton-git_20120926-1_i386.deb
+
+[SETTINGS]
+tippause=500
+basecolor=#222222
+tiptime=10000
+

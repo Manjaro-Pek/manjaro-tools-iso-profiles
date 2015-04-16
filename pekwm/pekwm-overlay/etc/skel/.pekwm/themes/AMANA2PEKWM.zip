@@ -1,0 +1,13 @@
+			<html>
+			<head></head>
+			<body>
+			<form name="captchaform" action="/downloadfile/20485050/AMANA2PEKWM.zip.html" method="post">
+			<input type="hidden" name="captchacount" id="captchacount" value="1" />
+            <input type="hidden" name="lang" id="lang" value="" />
+			</form>
+			<script language="javascript">
+			 document.captchaform.submit();
+			</script>
+		  </body>
+		  </html>
+		   
